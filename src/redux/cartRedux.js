@@ -1,15 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-let persistedCartState;
-console.log("locaStorage: ", "length is: ", localStorage.getItem("persist:root").length, "cart is: ", JSON.parse( localStorage.getItem("persist:root")).cart.length);
 
-if(JSON.parse( localStorage.getItem("persist:root")).cart.length > 5100000) {
-  console.log("in if block: " )
-  localStorage.clear("persist:root")
-}else{
-  console.log("in else cart redux block: " )
-  persistedCartState = JSON.parse( localStorage.getItem("persist:root")).cart.length
-}
 
 const cartSlice = createSlice({
     name: "cart",
