@@ -3,10 +3,10 @@ import {navmobile, tablet, mediumextrasmall, large, smallmobile, mediumsmall} fr
 
 import styled, {keyframes} from "styled-components"
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined"
-import { InputAdornment } from "@material-ui/core"
+import { InputAdornment } from "@mui/material"
 
 import {Menu, Clear } from "@mui/icons-material"
-import Badge from '@material-ui/core/Badge'
+import Badge from '@mui/material/Badge'
 import CartIcon from '@mui/icons-material/ShoppingCart'
 import {createTheme} from "@mui/material"
 import {ThemeProvider}  from "@mui/material"
