@@ -14,7 +14,7 @@ import SubtractButton from "@mui/icons-material/Remove"
 import { addProduct } from "../redux/cartRedux"
 import  { useDispatch } from "react-redux"
 import {hexcodes, colorNames} from "../Helper/colorCodes"
-import {smallmobile, navmobile, tablet, mediumsmall, large} from "../responsive"
+import {smallmobile, navmobile, tablet, mediumsmall, large, mobile} from "../responsive"
 import {KeyboardBackspace} from "@mui/icons-material"
 import {useNavigate} from "react-router-dom"
 
@@ -224,6 +224,9 @@ const Loader = styled.div`
    height: 1rem;
 
    animation:${rotate} 0.9s linear infinite;
+
+   
+   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
 `
 const ArrowBackContainer = styled.div`
   border: 0.6px solid white;

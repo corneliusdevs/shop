@@ -13,7 +13,7 @@ import * as Yup from "yup"
 
 import {useNavigate} from "react-router-dom"
 import { Visibility, VisibilityOff, CancelOutlined, CheckCircleOutline, KeyboardBackspace} from "@mui/icons-material"
-import {navmobile, tablet} from "../responsive"
+import {navmobile, tablet, mobile} from "../responsive"
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +30,7 @@ const Container = styled.div`
   
   ${tablet({padding: "5vh 0"})};
   ${navmobile({padding: "5vh 0", height: "fit-content"})};
+  ${mobile({height: "100vh"})}
 `;
 
 const FormContainer = styled.div`
@@ -202,6 +203,7 @@ const Loader = styled.div`
    height: 1rem;
 
    animation:${rotate} 0.9s linear infinite;
+   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
 `
 const StyledCancelIcon = styled(CancelOutlined)`
  transform: scale(1.5);
@@ -274,8 +276,9 @@ const RegisterPage = ()=>{
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().required("username is required")
-      .min(8, "username must be at least 8 characters")
-      .max(30, "username must not exceed 30 characters"),
+    .min(8, "username must not be less than 8 characters")
+    .max(20, "username must not be more than 20 characters")
+    .matches(/^[a-zA-Z0-9@]+$/, "character not allowed"),
     email: Yup.string()
        .required("email is required")
        .email("email is invalid"),

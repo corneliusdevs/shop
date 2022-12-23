@@ -128,6 +128,8 @@ const Loader = styled.div`
    margin-top: -40px;
   
    animation:${rotate} 0.9s linear infinite;
+   
+   ${navmobile({ width: "1.2rem",  height: "1.2rem"})}
 `
 
 

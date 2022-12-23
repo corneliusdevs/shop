@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import {navmobile, tablet, mediumextrasmall, large, smallmobile, mediumsmall} from "../responsive"
+import {navmobile, tablet, mediumextrasmall, large, mobile, smallmobile, mediumsmall} from "../responsive"
 
 import styled, {keyframes} from "styled-components"
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined"
@@ -544,6 +544,8 @@ const Loader = styled.div`
    margin-top: -40px;
   
    animation:${rotate} 0.9s linear infinite;
+   
+   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
 `
 
 

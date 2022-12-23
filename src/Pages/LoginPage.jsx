@@ -13,7 +13,7 @@ import { saveUser} from "../redux/userRedux"
 import * as Yup from "yup"
 import {useNavigate} from "react-router-dom"
 import { Visibility, VisibilityOff , CancelOutlined, CheckCircleOutline, KeyboardBackspace } from "@mui/icons-material"
-import {navmobile, tablet, mediumsmall} from "../responsive"
+import {navmobile, tablet, mediumsmall, mobile} from "../responsive"
 import {publicRequest}  from "../requestMethods"
 
 const Container = styled.div`
@@ -198,6 +198,9 @@ const Loader = styled.div`
    margin-top: -40px;
   
    animation:${rotate} 0.9s linear infinite;
+
+   
+   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
 `
 const StyledCancelIcon = styled(CancelOutlined)`
  transform: scale(1.5);
@@ -275,7 +278,8 @@ const navigate = useNavigate()
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("username is required")
     .min(8, "Invalid username")
-    .max(20, "Invalid username"),
+    .max(20, "Invalid username")
+    .matches(/^[a-zA-Z0-9@]+$/, "character not allowed"),
   password: Yup.string()
     .required("password is required")
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "invalid password")
