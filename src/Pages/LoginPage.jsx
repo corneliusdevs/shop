@@ -200,7 +200,7 @@ const Loader = styled.div`
    animation:${rotate} 0.9s linear infinite;
 
    
-   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
+   ${mobile({ width: "1.5rem",  height: "1.5rem"})}
 `
 const StyledCancelIcon = styled(CancelOutlined)`
  transform: scale(1.5);
@@ -279,10 +279,11 @@ const validationSchema = Yup.object().shape({
   username: Yup.string().required("username is required")
     .min(8, "Invalid username")
     .max(20, "Invalid username")
-    .matches(/^[a-zA-Z0-9@]+$/, "character not allowed"),
+    .matches(/^\S*$/, "whitespace not allowed"),
   password: Yup.string()
     .required("password is required")
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "invalid password")
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/, "invalid password")
+    
     });
     
     

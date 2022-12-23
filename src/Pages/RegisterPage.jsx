@@ -203,7 +203,7 @@ const Loader = styled.div`
    height: 1rem;
 
    animation:${rotate} 0.9s linear infinite;
-   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
+   ${mobile({ width: "1.5rem",  height: "1.5rem"})}
 `
 const StyledCancelIcon = styled(CancelOutlined)`
  transform: scale(1.5);
@@ -277,14 +277,16 @@ const RegisterPage = ()=>{
   const validationSchema = Yup.object().shape({
     username: Yup.string().required("username is required")
     .min(8, "username must not be less than 8 characters")
-    .max(20, "username must not be more than 20 characters")
-    .matches(/^[a-zA-Z0-9@]+$/, "character not allowed"),
+    .max(20, "username must not be more than 20 characters") 
+    .matches(/^\S*$/, "whitespace not allowed"),
     email: Yup.string()
        .required("email is required")
-       .email("email is invalid"),
+       .email("email is invalid")
+       .matches(/^\S*$/, "whitespace not allowed"),
     password: Yup.string()
       .required("password is required")
-      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character"),
+      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character")
+      .matches(/^\S*$/, "whitespace not allowed"),
     confirmPassword: Yup.string()
        .required("confirm password is required")
        .oneOf([Yup.ref("password"), null], "passwords must match")

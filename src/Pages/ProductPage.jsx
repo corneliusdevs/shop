@@ -226,7 +226,7 @@ const Loader = styled.div`
    animation:${rotate} 0.9s linear infinite;
 
    
-   ${mobile({ width: "1.2rem",  height: "1.2rem"})}
+   ${mobile({ width: "1.5rem",  height: "1.5rem"})}
 `
 const ArrowBackContainer = styled.div`
   border: 0.6px solid white;

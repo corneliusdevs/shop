@@ -113,10 +113,6 @@ const ProductsListPage = ()=>{
   console.log("category", cat)
  
 
-  useEffect(()=>{
-    console.log(filters)
-    
-  }, [filters])
 
   
 
