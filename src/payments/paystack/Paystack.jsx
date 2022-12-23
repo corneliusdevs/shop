@@ -5,6 +5,8 @@ import {useNavigate, Link} from "react-router-dom"
 import { CheckCircleOutline, CancelOutlined } from "@mui/icons-material"
 import {tablet, mobile, large} from "../../responsive"
 import axios from "axios"
+import {clearCart} from "../redux/cartRedux"
+import { useDispatch} from "react-redux"
 
 const Container = styled.div`
  display: flex;
@@ -135,6 +137,7 @@ const PaystackHook = ({email, amount, address, userId, products, accessToken} )=
 
   const [makePayment, setMakePayment] = useState(false)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
    const config = {
      reference: (new Date()).getTime().toString(),
@@ -247,6 +250,9 @@ useEffect(()=>{
                       <DialogButton onClick = {()=>{
                         setDialog(false)
                         navigate("/products")
+                        dispatch(
+                          clearCart()
+                        )
                       }}>Cool</DialogButton>
                     </StyledLink>
                     </DialogButtonContainer>
