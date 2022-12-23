@@ -5,7 +5,7 @@ import {useNavigate, Link} from "react-router-dom"
 import { CheckCircleOutline, CancelOutlined } from "@mui/icons-material"
 import {tablet, mobile, large} from "../../responsive"
 import axios from "axios"
-import {clearCart} from "../redux/cartRedux"
+import {clearCart} from "../../redux/cartRedux"
 import { useDispatch} from "react-redux"
 
 const Container = styled.div`
